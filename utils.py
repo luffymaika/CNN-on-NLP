@@ -8,14 +8,16 @@ def weight_variable(shape, stddev=0.02, name=None):
     if name is None:
         return tf.Variable(initial)
     else:
-        return tf.get_variable(name, initializer=initial)
+        # return tf.get_variable(name, initializer=initial)
+        return tf.Variable(initial, name=name)
 
 def bias_variable(shape, name=None):
     initial = tf.constant(0.0, shape=shape)
     if name is None:
         return tf.Variable(initial)
     else:
-        return tf.get_variable(name, initializer=initial)
+        # return tf.get_variable(name, initializer=initial)
+        return tf.Variable(initial, name=name)
 
 def conv2d_basic(x, W, bias):
     conv = tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding="SAME")
